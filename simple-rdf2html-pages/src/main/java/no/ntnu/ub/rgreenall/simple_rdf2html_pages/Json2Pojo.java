@@ -5,22 +5,40 @@ import java.util.Map;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
+/**
+ * Json2Pojo — class to convert between JSON and POJOs
+ * @author rurikgreenall
+ *
+ */
 public class Json2Pojo {
 	
 	public String data;
 	public Map<String,Object> rawdata;
-	
+	/**
+	 * Default constructor
+	 */
 	public Json2Pojo () { }
 	
+	/**
+	 * Overloaded constructor
+	 * @param data
+	 */
 	public Json2Pojo (String data) {
 		this.data = data;
 	}
-
+	
+	/**
+	 * Setter for String data
+	 * @param data
+	 */
 	public void setPojo(String data) {
 		this.data = data;
 	}
 	
-	
+	/**
+	 * Method getPojo converts the JSON string to a POJO
+	 * @return Map<String,String>
+	 */
 	public Map<String, String> getPojo() {
 		
 		Map<String,String> result = new HashMap<String,String>();

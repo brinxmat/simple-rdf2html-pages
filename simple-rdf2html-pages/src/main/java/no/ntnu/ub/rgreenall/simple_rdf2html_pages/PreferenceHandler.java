@@ -1,42 +1,36 @@
 package no.ntnu.ub.rgreenall.simple_rdf2html_pages;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
-
+/**
+ * Class PreferenceHandler — takes care of preferences
+ * @author rurikgreenall
+ *
+ */
 public class PreferenceHandler {
 	
 	private Configuration properties = null;
-
+	/**
+	 * Default constructor
+	 */
 	public PreferenceHandler () {}
 	
+	/**
+	 * getProperties method retrieves the properties file from the classpath
+	 * @throws ConfigurationException
+	 */
 	private void getProperties () throws ConfigurationException {
 		properties = new PropertiesConfiguration("config.properties");
 	
 	}
 	
-	public static <T> List<T> castList(Class<? extends T> clazz, Collection<?> c) {
-	    List<T> r = new ArrayList<T>(c.size());
-	    for(Object o: c)
-	      r.add(clazz.cast(o));
-	    return r;
-	}
-	
-	public List<String> getRESTList () throws ConfigurationException {
-		if (properties == null) {
-			getProperties();
-		}
-		
-		List<String> rest = castList(String.class, properties.getList("availableRESTElements"));
-		
-		return rest;
-	}
-
+	/**
+	 * getters for the various properties
+	 * @return
+	 * @throws ConfigurationException
+	 */
 	public String getBaseURI () throws ConfigurationException {
 		if (properties == null) {
 			getProperties();

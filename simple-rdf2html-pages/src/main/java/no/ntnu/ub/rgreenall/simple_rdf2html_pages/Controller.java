@@ -50,7 +50,7 @@ public class Controller {
     }
 	
     /** 
-     * provide the RDF data
+     * provide the JSON data
      * @return Response
      * @throws ConfigurationException 
      */
@@ -64,7 +64,10 @@ public class Controller {
 		return data;
     }
 	
-
+	/**
+	 * get the front page
+	 * @return Response
+	 */
 	@Path("")
     @GET 
     @Produces("text/html")
@@ -72,7 +75,15 @@ public class Controller {
 		HashMap<String,String> list = new HashMap<String,String>();
         return Response.ok(new Viewable("/index.jsp",list)).build();
     }
-
+	
+	/**
+	 * Do a search and format and present the results
+	 * @param query
+	 * @param from
+	 * @return
+	 * @throws ConfigurationException
+	 * @throws IOException
+	 */
 	@Path("search")
     @GET 
     @Produces("text/html")

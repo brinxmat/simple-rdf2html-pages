@@ -12,11 +12,27 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.*;
 import org.codehaus.jackson.map.ObjectMapper;
+/**
+ * Search class, provides basic search functionality
+ * @author rurikgreenall
+ *
+ */
 
 public class Search {
-	
+	/**
+	 * Default constructor
+	 */
 	public Search () {}
-	
+	/**
+	 * getSearchData method — retrieves data
+	 * 
+	 * @param q
+	 * @param from
+	 * @param size
+	 * @return
+	 * @throws IOException
+	 * @throws ConfigurationException
+	 */
 	static String getSearchData (String q, int from, int size) throws IOException, ConfigurationException {
 
 		PreferenceHandler prefs = new PreferenceHandler();
@@ -55,6 +71,15 @@ public class Search {
     return res;
 	}
 	
+	/**
+	 * getSearchDataObject creates a POJO of the retrieved data
+	 * 
+	 * @param q
+	 * @param start
+	 * @return
+	 * @throws ConfigurationException
+	 * @throws IOException
+	 */
 	public Map<Object,Object> getSearchDataObject (String q, int start) throws ConfigurationException, IOException {
 		
 		PreferenceHandler prefs = new PreferenceHandler();

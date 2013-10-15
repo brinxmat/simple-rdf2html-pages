@@ -16,12 +16,27 @@ import com.hp.hpl.jena.sparql.engine.http.QueryExceptionHTTP;
 
 import org.json.JSONObject;
 
+/**
+ * RDFTools class — provides basic RDF handling
+ * @author rurikgreenall
+ *
+ */
 public class RDFTools {
+	
+	/**
+	 * Default constructor
+	 */
 	
 	public RDFTools () {}
 	
 	public static String identifier;
 
+	/**
+	 * getRDF method — statically accessed to provide result of a sparql query
+	 * @param query
+	 * @return
+	 * @throws ConfigurationException
+	 */
 	public static Model getRDF(String query) throws ConfigurationException {
 
 		PreferenceHandler prefs = new PreferenceHandler();
@@ -42,6 +57,12 @@ public class RDFTools {
 	      return resultModel;
 	}
 	
+	/**
+	 * getSchema method — maps RDF to HashMap<String,String>
+	 * @param identifier
+	 * @return
+	 * @throws ConfigurationException
+	 */
 	public static HashMap<String, String> getSchema(String identifier) throws ConfigurationException {
 
 		PreferenceHandler prefs = new PreferenceHandler();
@@ -69,6 +90,13 @@ public class RDFTools {
   	  	return resource;
 	}
 	
+	/**
+	 * describeNamedResource method — provides a CBD for a resource via a sparql query
+	 * 
+	 * @param identifier
+	 * @return
+	 * @throws ConfigurationException
+	 */
 	public static  Model describeNamedResource (String identifier) throws ConfigurationException {
 		PreferenceHandler prefs = new PreferenceHandler();
 		String service = prefs.getSPARQLEndpoint();
@@ -90,6 +118,12 @@ public class RDFTools {
 	      return resultModel;
 	}
 	
+	/**
+	 * serializer method — returns given serialization of a Model as a string
+	 * @param model
+	 * @param syntax
+	 * @return String
+	 */
 	public static String serializer (Model model, String syntax) {
 		
 		StringWriter out = new StringWriter();
@@ -99,6 +133,12 @@ public class RDFTools {
 		return result;
 	}
 	
+	/**
+	 * getRDFXML method — provides RDF/XML-ABBREV for a resource
+	 * @param identifier
+	 * @return
+	 * @throws ConfigurationException
+	 */
 	public static String getRDFXML (String identifier) throws ConfigurationException {
 				
 		Model resultModel = describeNamedResource(identifier);
@@ -106,6 +146,12 @@ public class RDFTools {
 	    return serializer(resultModel,"RDF/XML-ABBREV");
 	}
 	
+	/**
+	 * getJSON method — returns a simplified JSON string for a resource
+	 * @param identifier
+	 * @return String
+	 * @throws ConfigurationException
+	 */
 	public static String getJSON(String identifier) throws ConfigurationException {
 		
 		JSONObject json = new JSONObject(getSchema(identifier));
