@@ -13,7 +13,9 @@ public class PreferenceHandler {
 	
 	private Configuration properties = null;
 
-	private  void getProperties () throws ConfigurationException {
+	public PreferenceHandler () {}
+	
+	private void getProperties () throws ConfigurationException {
 		properties = new PropertiesConfiguration("config.properties");
 	
 	}

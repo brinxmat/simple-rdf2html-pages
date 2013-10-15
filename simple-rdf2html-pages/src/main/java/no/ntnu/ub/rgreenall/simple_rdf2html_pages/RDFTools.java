@@ -18,6 +18,8 @@ import org.json.JSONObject;
 
 public class RDFTools {
 	
+	public RDFTools () {}
+	
 	public static String identifier;
 
 	public static Model getRDF(String query) throws ConfigurationException {
