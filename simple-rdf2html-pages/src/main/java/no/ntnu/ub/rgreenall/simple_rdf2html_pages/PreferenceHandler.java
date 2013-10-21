@@ -112,4 +112,14 @@ public class PreferenceHandler {
 		return resource;
 	}
 
+	public String getPersonQueryConstruct() throws ConfigurationException {
+		
+		if (properties == null) {
+			getProperties();
+		}
+		
+		String resource = properties.getProperty("query.personConstruct").toString();
+
+		return resource;	}
+
 }

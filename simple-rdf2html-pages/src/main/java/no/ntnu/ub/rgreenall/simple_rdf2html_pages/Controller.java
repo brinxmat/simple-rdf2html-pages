@@ -30,10 +30,25 @@ public class Controller {
     @Produces("text/html")
     public Response getHTML(@PathParam("identifier") String identifier) throws ConfigurationException {
 
+		String type = "document";
 
-		return Response.ok(new Viewable("/document.jsp",RDFTools.getSchema(identifier))).build();
+		return Response.ok(new Viewable("/document.jsp",RDFTools.getSchema(identifier,type))).build();
     }
 
+    /** 
+     * provide the JSP with data
+     * @return Response
+     * @throws ConfigurationException 
+     */
+	@Path("/person/{identifier}")
+    @GET 
+    @Produces("text/html")
+    public Response getPersonHTML(@PathParam("identifier") String identifier) throws ConfigurationException {
+
+		String type = "person";
+
+		return Response.ok(new Viewable("/person.jsp",RDFTools.getSchema(identifier,type))).build();
+    }
 
     /** 
      * provide the RDF data
@@ -54,12 +69,12 @@ public class Controller {
      * @return Response
      * @throws ConfigurationException 
      */
-	@Path("document/{identifier}")
+	@Path("{type}/{identifier}")
     @GET 
     @Produces("application/json;qs=0.9")
-    public String getJSON(@PathParam("identifier") String identifier) throws ConfigurationException {
+    public String getJSON(@PathParam("identifier") String identifier,@PathParam("type") String type) throws ConfigurationException {
 
-		String data = RDFTools.getJSON(identifier);
+		String data = RDFTools.getJSON(identifier,type);
 
 		return data;
     }

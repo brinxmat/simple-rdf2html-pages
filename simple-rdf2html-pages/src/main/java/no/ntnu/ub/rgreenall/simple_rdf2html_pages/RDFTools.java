@@ -63,13 +63,20 @@ public class RDFTools {
 	 * @return
 	 * @throws ConfigurationException
 	 */
-	public static HashMap<String, String> getSchema(String identifier) throws ConfigurationException {
+	public static HashMap<String, String> getSchema(String identifier,String type) throws ConfigurationException {
 
 		PreferenceHandler prefs = new PreferenceHandler();
-		String query = prefs.getQueryConstruct().replace("{ID}", identifier);
 		HashMap<String, String> resource = new HashMap<String, String>();
 		resource.put("identifier", identifier);
-
+		String query = new String();
+		
+		if (type.equals("document")) {
+			query = prefs.getQueryConstruct().replace("{ID}", identifier);
+		}
+		else if (type.equals("person")) {
+			query = prefs.getPersonQueryConstruct().replace("{ID}", identifier);
+		}
+		
 		Model resultModel = getRDF(query);
 		
 		
@@ -152,9 +159,10 @@ public class RDFTools {
 	 * @return String
 	 * @throws ConfigurationException
 	 */
-	public static String getJSON(String identifier) throws ConfigurationException {
+	public static String getJSON(String identifier,String type) throws ConfigurationException {
 		
-		JSONObject json = new JSONObject(getSchema(identifier));
+		
+		JSONObject json = new JSONObject(getSchema(identifier,type));
 		
 		 return json.toString();
 	}
