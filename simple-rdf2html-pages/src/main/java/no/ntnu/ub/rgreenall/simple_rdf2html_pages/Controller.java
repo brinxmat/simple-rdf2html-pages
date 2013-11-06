@@ -19,6 +19,7 @@ import com.sun.jersey.api.view.Viewable;
  */
 @Path("/")
 public class Controller {
+	
     
     /** 
      * provide the JSP with data
@@ -31,7 +32,7 @@ public class Controller {
     public Response getHTML(@PathParam("identifier") String identifier) throws ConfigurationException {
 
 		String type = "document";
-
+		System.out.println(RDFTools.getSchema(identifier,type));
 		return Response.ok(new Viewable("/document.jsp",RDFTools.getSchema(identifier,type))).build();
     }
 
@@ -69,11 +70,12 @@ public class Controller {
      * @return Response
      * @throws ConfigurationException 
      */
-	@Path("{type}/{identifier}")
+	@Path("document/{identifier}")
     @GET 
     @Produces("application/json;qs=0.9")
-    public String getJSON(@PathParam("identifier") String identifier,@PathParam("type") String type) throws ConfigurationException {
+    public String getJSON(@PathParam("identifier") String identifier) throws ConfigurationException {
 
+		String type = "document";
 		String data = RDFTools.getJSON(identifier,type);
 
 		return data;
