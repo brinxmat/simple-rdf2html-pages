@@ -84,7 +84,7 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 
 				<ul>
 				<c:forEach items="${it[baseuri]['http://schema.org/about']}" var="entry">
-    				<li>${it[entry]["http://schema.org/name"][0]}</li>
+    				<li itemscope itemtype="http://schema.org/Place" prefix="schema: http://schema.org/ rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# dcterms: http://purl.org/dc/terms/" about="${entry}"><span itemprop="name" >${it[entry]["http://schema.org/name"][0]}</span><span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates"><meta itemprop="latitude" content="${it[entry]["http://schema.org/latitude"][0]}"/><meta itemprop="longitude" content="${it[entry]["http://schema.org/longitude"][0]}"/></span></li>
 				</c:forEach>
 				</ul>
 			</div>
