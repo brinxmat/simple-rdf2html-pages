@@ -66,7 +66,7 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 	
 		</div>
 		<div class="sidebar">
-			<div class="resource-data" itemscope itemtype="${it[baseuri]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" prefix="schema: http://schema.org/ rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# dcterms: http://purl.org/dc/terms/" about="${baseuri}">
+			<div class="resource-data" itemscope itemtype="${it[baseuri]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" prefix="schema: http://schema.org/ rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# dcterms: http://purl.org/dc/terms/" typeof="${it[baseuri]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" about="${baseuri}">
 				<div class="metadata">
 					<ul>
 					<li class="title" property="schema:title" itemprop="name">${it[baseuri]['http://schema.org/title'][0]}</li>
@@ -84,7 +84,7 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 
 				<ul>
 				<c:forEach items="${it[baseuri]['http://schema.org/about']}" var="entry">
-    				<li itemscope itemtype="http://schema.org/Place" prefix="schema: http://schema.org/ rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# dcterms: http://purl.org/dc/terms/" about="${entry}"><span itemprop="name" >${it[entry]["http://schema.org/name"][0]}</span><span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates"><meta itemprop="latitude" content="${it[entry]["http://schema.org/latitude"][0]}"/><meta itemprop="longitude" content="${it[entry]["http://schema.org/longitude"][0]}"/></span></li>
+    				<li itemscope itemtype="${it[entry]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" prefix="schema: http://schema.org/ rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# dcterms: http://purl.org/dc/terms/" typeof="${it[entry]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" about="${entry}"><span itemprop="name" >${it[entry]["http://schema.org/name"][0]}</span><span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates"><meta itemprop="latitude" property="schema:latitude" content="${it[entry]["http://schema.org/latitude"][0]}"/><meta itemprop="longitude" property="schema:longitude" content="${it[entry]["http://schema.org/longitude"][0]}"/></span></li>
 				</c:forEach>
 				</ul>
 			</div>
