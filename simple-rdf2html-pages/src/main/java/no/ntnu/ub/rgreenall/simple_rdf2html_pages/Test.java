@@ -21,8 +21,9 @@ public class Test {
 //		String q = "PREFIX time: <http://www.w3.org/2006/time#> SELECT * WHERE {?a ?v ?c}";
 //		System.out.println(q);
 		
-		System.out.println(RDFTools.getSchema("ntnu21", "document"));
+		System.out.println(RDFTools.getSchema("p9", "person"));
 		System.out.println(RDFTools.getRDFXML("ntnu23"));
+		System.out.println(RDFTools.getJSON("p9", "person"));
 		
 /*	
 		Search s = new Search();

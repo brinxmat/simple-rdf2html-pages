@@ -26,7 +26,7 @@ public class Controller {
      * @return Response
      * @throws ConfigurationException 
      */
-	@Path("/document/{identifier}")
+	@Path("document/{identifier}")
     @GET 
     @Produces("text/html")
     public Response getHTML(@PathParam("identifier") String identifier) throws ConfigurationException {
@@ -41,7 +41,7 @@ public class Controller {
      * @return Response
      * @throws ConfigurationException 
      */
-	@Path("/person/{identifier}")
+	@Path("person/{identifier}")
     @GET 
     @Produces("text/html")
     public Response getPersonHTML(@PathParam("identifier") String identifier) throws ConfigurationException {
@@ -70,12 +70,11 @@ public class Controller {
      * @return Response
      * @throws ConfigurationException 
      */
-	@Path("document/{identifier}")
+	@Path("person/{identifier}")
     @GET 
-    @Produces("application/json;qs=0.9")
-    public String getJSON(@PathParam("identifier") String identifier) throws ConfigurationException {
-
-		String type = "document";
+    @Produces("application/json")
+    public String getJSON(@PathParam("identifier") String identifier/*, @PathParam("type") String type*/) throws ConfigurationException {
+		String type="person";
 		String data = RDFTools.getJSON(identifier,type);
 
 		return data;
