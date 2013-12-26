@@ -14,7 +14,10 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 	 	<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/reset.css" rel="stylesheet" type="text/css">
 		<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/responsive.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/small.css" type="text/css" media="only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-height: 480px), only screen and (max-device-height: 480px)">
+		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-darkness/jquery-ui.min.css" rel="stylesheet" type="text/css">
 		<title><fmt:message key="title" bundle="${lingua}" /></title>
+		<script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
 	</head>
 	<body>
 		<div class="header">
@@ -30,32 +33,16 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 			</div>
 		</div>
 		<div class="view">
-			<div class="content">
-				<script type="text/javascript" src="http://ubit.fillager.bibsys.no/fsi/js/fsiwriter.js"></script>
-				<script type="text/javascript">
-			<!--
-			writeFlashCode( "http://ubit.fillager.bibsys.no/fsi/viewer/fsi.swf?cfg=pages_presets%2Fhard_cover_book&pages_dir=Publisering%2F${it.identifier.identifier[0]}&skin=black&language=english&effects=sharpen%3D30%2526quality%3D80&viewerborder=0A0000&pages_bendeffect=Matte&roundedskincorners=30&plugins=resize,fullscreen",
-			"http://ubit.fillager.bibsys.no/fsi/server?type=image&source=Publisering%2F${it.identifier.identifier[0]}%2F001.jpg&width=468&height=814",
-			"width=100%;height=100%;bgcolor=0A0000;mobilesupport=true");
-			// -->
-				</script>
-				<noscript>
-					<object data="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,65,0" type="x-application/shockwave-flash">
-					<param name="movie" value="http://ubit.fillager.bibsys.no/fsi/viewer/fsi.swf?cfg=pages_presets%2Fhard_cover_book&amp;pages_dir=Publisering%2F${it.identifier.identifier[0]}&amp;skin=black&amp;language=english&amp;effects=sharpen%3D30%2526quality%3D80&amp;viewerborder=0A0000&amp;pages_bendeffect=Matte&amp;roundedskincorners=30&amp;plugins=resize,fullscreen">
-					<param name="bgcolor" value="0A0000" />
-					<param name="mobilesupport" value="true" />
-					<param name="allowscriptaccess" value="always" />
-					<param name="allowfullscreen" value="true" />
-					<param name="quality" value="high" />
-					<embed src="http://ubit.fillager.bibsys.no/fsi/viewer/fsi.swf?cfg=pages_presets%2Fhard_cover_book&amp;pages_dir=Publisering%2F${it.identifier.identifier[0]}&amp;skin=black&amp;language=english&amp;effects=sharpen%3D30%2526quality%3D80&amp;viewerborder=0A0000&amp;pages_bendeffect=Matte&amp;roundedskincorners=30&amp;plugins=resize,fullscreen"
-					mobilesupport="true"
-					allowscriptaccess="always"
-					allowfullscreen="true"
-					quality="high"
-					type="application/x-shockwave-flash"
-					pluginspage="http://www.adobe.com/go/getflashplayer" />
-					</object>
-				</noscript>
+			<div class="documentViewer">
+				<object id="fsiViewer" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="780" height="420">
+  					<!--[if !IE]>-->
+  					<object type="application/x-shockwave-flash" data="${it[baseuri]['http://schema.org/associatedMedia'][0]}" width="780" height="420">
+ 					<!--<![endif]-->
+    					<p>Flash content unavailable!</p>
+  					<!--[if !IE]>-->
+  					</object>
+  					<!--<![endif]-->
+				</object>
 			</div>
 		</div>
 		<div class="text">
@@ -87,8 +74,8 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 			<div class="navigation"><span>${rightsnotice}</span> | <span><a href="../about" title="${about}">${about}</a></span> | <span><a href="../contact" title="${contact}">${contact}</a></span></div>
 		</div>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
-		<script type="text/javascript">
-		</script>
+		<script type="text/javascript" src="http://folk.ntnu.no/greenall/simple-rdf2html-pages/js/document.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="http://folk.ntnu.no/greenall/simple-rdf2html-pages/js/autocomplete.js"></script>
 	</body>
 </html>

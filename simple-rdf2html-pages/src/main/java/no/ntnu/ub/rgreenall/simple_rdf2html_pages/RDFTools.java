@@ -8,12 +8,11 @@ import org.apache.commons.configuration.ConfigurationException;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.sparql.engine.http.QueryExceptionHTTP;
 import org.apache.commons.collections.map.MultiValueMap;
+import org.apache.commons.lang.StringEscapeUtils;
 
 import org.json.JSONObject;
 
@@ -67,7 +66,6 @@ public class RDFTools {
 	public static HashMap<String, MultiValueMap> getSchema(String identifier,String type) throws ConfigurationException {
 
 		PreferenceHandler prefs = new PreferenceHandler();
-		HashMap<String, Object> resource = new HashMap<String, Object>();
 		String baseuri = prefs.getBaseURI();
 		
 		String query = new String();
@@ -85,19 +83,19 @@ public class RDFTools {
 		
   	  	if (resultModel.isEmpty()) {System.out.println("Query returned no data");}
 
-  	  	StmtIterator iter = resultModel.listStatements();
   	  	
   	  	StmtIterator i2 = resultModel.listStatements();
   	  	
   	  	HashMap<String, MultiValueMap> myArray = new HashMap<String, MultiValueMap>();
- 
+  	  	
 
   	  	while (i2.hasNext()) {
   	  		Statement state = i2.next();
   	  		
+  	  		
   	  		String subject = state.getSubject().toString();
   	  		String predicate = state.getPredicate().toString();
-  	  		String object = state.getObject().toString();
+  	  		String object = StringEscapeUtils.unescapeHtml(state.getObject().toString());
   		
   	  		if (!myArray.containsKey(subject)) {
   	  			myArray.put(subject, new MultiValueMap());
@@ -107,43 +105,15 @@ public class RDFTools {
 
    	  	}
   	  	
- 
-  	  	try {
-
-            while ( iter.hasNext() ) {
-            	
-                Statement stmt = iter.next();
-                
-                Resource s = stmt.getSubject();
-                Resource p = stmt.getPredicate();
-                RDFNode o = stmt.getObject();
-
-                
-                HashMap<String,Object> inner = new HashMap<String,Object>();
-
-                	if (o instanceof Resource) {
-
-                    	inner.put(p.toString(), o.toString());
-                    	resource.put(s.toString(),inner);
-
-                	}
-                	else {
-                    	resource.put(p.toString(), o.toString());
-
-                	}
-                	
-            }
-    	  } finally {
-    		  if ( iter != null ) iter.close();
-        }
  	  	myArray.put("baseuri",new MultiValueMap());
   	  	myArray.get("baseuri").put("baseuri", baseuri);
   	  	myArray.put("identifier", new MultiValueMap());
-  	  	myArray.get("identifier").put("identifier",identifier);
+  	  	myArray.get("identifier").put("identifier",baseuri + "/" + type + "/" + identifier);
   	  	return myArray;
 	}
 	
 	
+  	  	
 	/**
 	 * describeNamedResource method — provides a CBD for a resource via a sparql query
 	 * 

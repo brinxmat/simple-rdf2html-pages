@@ -10,6 +10,7 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 		<meta http-equiv="X-UA-Compatible" content="chrome-1">
 		<meta content="True" name="HandheldFriendly">
 		<meta name="viewport" content="width=device-width">
+		<link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-darkness/jquery-ui.min.css" rel="stylesheet" type="text/css">
 		<link href='http://fonts.googleapis.com/css?family=Share+Tech' rel='stylesheet' type='text/css'>
 	 	<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/reset.css" rel="stylesheet" type="text/css">
 		<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/responsive.css" rel="stylesheet" type="text/css">
@@ -63,8 +64,7 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 			<div class="navigation"><span>${rightsnotice}</span> | <span><a href="../about" title="${about}">${about}</a></span> | <span><a href="../contact" title="${contact}">${contact}</a></span></div>
 		</div>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
-		<script type="text/javascript">
-		</script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="http://folk.ntnu.no/greenall/simple-rdf2html-pages/js/autocomplete.js"></script>
 	</body>
 </html>

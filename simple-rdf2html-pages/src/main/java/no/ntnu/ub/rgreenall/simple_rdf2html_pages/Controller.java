@@ -20,65 +20,6 @@ import com.sun.jersey.api.view.Viewable;
 @Path("/")
 public class Controller {
 	
-    
-    /** 
-     * provide the JSP with data
-     * @return Response
-     * @throws ConfigurationException 
-     */
-	@Path("document/{identifier}")
-    @GET 
-    @Produces("text/html")
-    public Response getHTML(@PathParam("identifier") String identifier) throws ConfigurationException {
-
-		String type = "document";
-		System.out.println(RDFTools.getSchema(identifier,type));
-		return Response.ok(new Viewable("/document.jsp",RDFTools.getSchema(identifier,type))).build();
-    }
-
-    /** 
-     * provide the JSP with data
-     * @return Response
-     * @throws ConfigurationException 
-     */
-	@Path("person/{identifier}")
-    @GET 
-    @Produces("text/html")
-    public Response getPersonHTML(@PathParam("identifier") String identifier) throws ConfigurationException {
-
-		String type = "person";
-
-		return Response.ok(new Viewable("/person.jsp",RDFTools.getSchema(identifier,type))).build();
-    }
-
-    /** 
-     * provide the RDF data
-     * @return Response
-     * @throws ConfigurationException 
-     */
-	@Path("document/{identifier}")
-    @GET 
-    @Produces("application/rdf+xml;qs=0.9")
-    public String getRDF(@PathParam("identifier") String identifier) throws ConfigurationException {
-    	String data = RDFTools.getRDFXML(identifier);
-
-        return data;
-    }
-	
-    /** 
-     * provide the JSON data
-     * @return Response
-     * @throws ConfigurationException 
-     */
-	@Path("person/{identifier}")
-    @GET 
-    @Produces("application/json")
-    public String getJSON(@PathParam("identifier") String identifier/*, @PathParam("type") String type*/) throws ConfigurationException {
-		String type="person";
-		String data = RDFTools.getJSON(identifier,type);
-
-		return data;
-    }
 	
 	/**
 	 * get the front page
@@ -113,9 +54,71 @@ public class Controller {
 
 		return Response.ok(new Viewable("/search.jsp",list)).build();
     }
-
-
 	
 
+    
+    /** 
+     * provide the JSP with data
+     * @return Response
+     * @throws ConfigurationException 
+     */
+	@Path("{type}/{identifier}")
+    @GET 
+    @Produces("text/html;qs=2")
+    public Response getHTML(@PathParam("type") String type, @PathParam("identifier") String identifier) throws ConfigurationException {
+
+		String viewType =  new String("/" + type + ".jsp");
+		
+			
+			
+		return Response.ok(new Viewable(viewType,RDFTools.getSchema(identifier,type))).build();
+    }
+
+    /** 
+     * provide the JSP with data
+     * @return Response
+     * @throws ConfigurationException 
+     */
+/*
+	@Path("person/{identifier}")
+    @GET 
+    @Produces("text/html")
+    public Response getPersonHTML(@PathParam("identifier") String identifier) throws ConfigurationException {
+
+		String type = "person";
+
+		return Response.ok(new Viewable("/person.jsp",RDFTools.getSchema(identifier,type))).build();
+    }
+*/
+    /** 
+     * provide the RDF data
+     * @return Response
+     * @throws ConfigurationException 
+     */
 	
+	@Path("{type}/{identifier}")
+    @GET 
+    @Produces("application/rdf+xml;qs=0.7")
+    public String getRDF(@PathParam("type") String type, @PathParam("identifier") String identifier) throws ConfigurationException {
+    	String data = RDFTools.getRDFXML(identifier);
+
+        return data;
+    }
+
+    /** 
+     * provide the JSON data
+     * @return Response
+     * @throws ConfigurationException 
+     */
+	
+	
+	@Path("{type}/{identifier}")
+    @GET 
+    @Produces("application/json;qs=0.1")
+    public String getJSON(@PathParam("type") String type, @PathParam("identifier") String identifier) throws ConfigurationException {
+		String data = RDFTools.getJSON(identifier, type);
+
+		return data;
+    }
+
 }
