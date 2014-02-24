@@ -14,20 +14,7 @@
 		<title><fmt:message key="title" bundle="${lingua}" /></title>
 	</head>
 	<body>
-		<div class="header">
-			<div class="title">
-				<h1><fmt:message key="title" bundle="${lingua}" /></h1>
-			</div>
-			<div class="searchbox">
-				<form name="searchForm" method="GET" action="search">
-					<fieldset class="searchbox">
-						<input name="query" class="search" id="search" placeholder="${initialSearchText}" value="${it.query}"/><input type="submit" class="searchGo" value="${searchButtonText}"/>
-					</fieldset>
-				</form>
-			</div>
-			
-		</div>
-
+		<%@include file="include/header.jsp" %>
 		<div class="search-results">
 		  <h2>Total hits: ${it.hits.total}</h2>
 		  <ul>
@@ -38,9 +25,9 @@
     	    	  <a href="${identifier}">
     	    	  <div>
     	    	  
-    	    	    <span class="title">${s["_source"][identifier]["http://schema.org/title"][0]}</span><br>
-    	    	    <span class="author">${s["_source"][identifier]["http://schema.org/creator"][0]}</span>
-    	    	    <span class="date">${s["_source"][identifier]["http://schema.org/dateCreated"][0]}</span>    	    	    
+    	    	    <div class="title">${s["_source"][identifier]["http://schema.org/title"][0]}</div><br>
+    	    	    <div class="author">${s["_source"][identifier]["http://schema.org/creator"][0]}</div>
+    	    	    <div class="date">${s["_source"][identifier]["http://schema.org/dateCreated"][0]}</div>    	    	    
     	    	  </div>
     	    	  </a>
     	    	</li>
@@ -59,10 +46,7 @@
 		    </c:choose>
 		  </c:forEach>
 		</div>
-		<div class="footer">
-			<div class="webeditor"><span>${webeditor}</span></div>
-			<div class="navigation"><span>${rightsnotice}</span> | <span><a href="about" title="${about}">${about}</a></span> | <span><a href="contact" title="${contact}">${contact}</a></span></div>
-		</div>
+		<%@include file="include/footer.jsp" %>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="http://folk.ntnu.no/greenall/simple-rdf2html-pages/js/autocomplete.js"></script>

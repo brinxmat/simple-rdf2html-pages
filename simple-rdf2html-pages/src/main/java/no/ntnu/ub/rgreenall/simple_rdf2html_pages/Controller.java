@@ -54,7 +54,14 @@ public class Controller {
 
 		return Response.ok(new Viewable("/search.jsp",list)).build();
     }
-	
+
+	@Path("sitemap")
+    @GET 
+    @Produces("application/xml")
+    public Response getSitemap()  {
+
+		return Response.ok(new Viewable("/sitemap.xml",null)).build();
+    }
 
     
     /** 
@@ -66,7 +73,7 @@ public class Controller {
     @GET 
     @Produces("text/html;qs=2")
     public Response getHTML(@PathParam("type") String type, @PathParam("identifier") String identifier) throws ConfigurationException {
-
+		
 		String viewType =  new String("/" + type + ".jsp");
 		
 			

@@ -18,18 +18,7 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 		<title><fmt:message key="title" bundle="${lingua}" /></title>
 	</head>
 	<body>
-		<div class="header">
-			<div class="title">
-				<h1><fmt:message key="title" bundle="${lingua}" /></h1>
-			</div>
-			<div class="searchbox">
-				<form name="searchForm" method="GET" action="../search">
-					<fieldset class="searchbox">
-						<input name="query" class="search" id="search" placeholder="${initialSearchText}"/><input type="submit" class="searchGo" value="${searchButtonText}"/>
-					</fieldset>
-				</form>
-			</div>
-		</div>
+		<%@include file="include/header.jsp" %>
 		<div class="view">
 			<div class="content">
 				<img src="${it[baseuri]['http://schema.org/image'][0]}" alt="${it[baseuri]['http://schema.org/title'][0]}" />
@@ -59,10 +48,7 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 				</div>
 			</div>
 		</div>
-		<div class="footer">
-			<div class="webeditor"><span>${webeditor}</span></div>
-			<div class="navigation"><span>${rightsnotice}</span> | <span><a href="../about" title="${about}">${about}</a></span> | <span><a href="../contact" title="${contact}">${contact}</a></span></div>
-		</div>
+		<%@include file="include/footer.jsp" %>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="http://folk.ntnu.no/greenall/simple-rdf2html-pages/js/autocomplete.js"></script>

@@ -2,9 +2,10 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<meta http-equiv="X-UA-Compatible" content="chrome-1">
-		<meta content="True" name="HandheldFriendly">
-		<meta name="viewport" content="width=device-width">
+		<meta http-equiv="X-UA-Compatible" content="chrome-1"/>
+		<meta content="True" name="HandheldFriendly"/>
+		<meta name="viewport" content="width=device-width"/>
+		<meta name="google-site-verification" content="a1uf7qcFosH7CrxLKqONQujxnprZGyyOKI5u8WKr2DE" />
 		<link href="http://fonts.googleapis.com/css?family=Share+Tech" rel="stylesheet" type="text/css">
 	 	<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/reset.css" rel="stylesheet" type="text/css">
 		<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/responsive.css" rel="stylesheet" type="text/css">
@@ -13,22 +14,8 @@
 		<title><fmt:message key="title" bundle="${lingua}" /></title>
 	</head>
 	<body>
-		<div class="header">
-			<div class="title">
-				<h1><fmt:message key="title" bundle="${lingua}" /></h1>
-			</div>
-			<div class="searchbox">
-				<form name="searchForm" method="GET" action="search">
-					<fieldset class="searchbox">
-						<input name="query" class="search" id="search" placeholder="${initialSearchText}"/><input type="submit" class="searchGo" value="${searchButtonText}"/>
-					</fieldset>
-				</form>
-			</div>
-			
-		</div>
+<%@include file="include/header.jsp" %>
 		<div class="view">
-			<div class="content">
-			</div>
 		</div>
 		<div class="text">
 			<div class="content">
@@ -40,10 +27,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="footer">
-			<div class="webeditor"><span>${webeditor}</span></div>
-			<div class="navigation"><span>${rightsnotice}</span> | <span><a href="about" title="${about}">${about}</a></span> | <span><a href="contact" title="${contact}">${contact}</a></span></div>
-		</div>
+<%@include file="include/footer.jsp" %>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="http://folk.ntnu.no/greenall/simple-rdf2html-pages/js/autocomplete.js"></script>
