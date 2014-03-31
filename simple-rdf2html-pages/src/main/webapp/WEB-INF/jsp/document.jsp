@@ -27,7 +27,7 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 			<div class="documentViewer">
 				<script type="text/javascript">
 					<!--
-					writeFlashCode("${it[baseuri]['http://schema.org/associatedMedia'][0]}");
+					writeFlashCode("${it[baseuri]['http://schema.org/associatedMedia'][0]}","","mobilesupport=true");
 					// -->
 				</script>
 				<noscript>
@@ -37,9 +37,11 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 						<param name="allowscriptaccess" value="always" />
 						<param name="allowfullscreen" value="true" />
 						<param name="quality" value="high" />
+						<param name="mobilesupport" value="true" />
 						<embed src="${it[baseuri]['http://schema.org/associatedMedia'][0]}"
 							width="100%"
 							height="100%"
+							mobilesupport="true"
 							wmode="transparent"
 							allowscriptaccess="always"
 							allowfullscreen="true"
@@ -68,7 +70,7 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 
 					<ul>
 						<c:forEach items="${it[baseuri]['http://schema.org/about']}" var="entry">
-    						<li itemscope itemtype="${it[entry]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" prefix="schema: http://schema.org/ rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# dcterms: http://purl.org/dc/terms/" typeof="${it[entry]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" about="${entry}"><span itemprop="name" ><a href="${searchuri}?query=${it[entry]["http://schema.org/name"][0]}">${it[entry]["http://schema.org/name"][0]}</a></span><span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates"><meta itemprop="latitude" property="schema:latitude" content="${it[entry]["http://schema.org/latitude"][0]}"/><meta itemprop="longitude" property="schema:longitude" content="${it[entry]["http://schema.org/longitude"][0]}"/></span></li>
+    						<li itemscope itemtype="${it[entry]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" prefix="schema: http://schema.org/ rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# dcterms: http://purl.org/dc/terms/" typeof="${it[entry]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" about="${entry}"><span itemprop="name" ><a href="${searchuri}?query=${it[entry]['http://schema.org/name'][0]}">${it[entry]["http://schema.org/name"][0]}</a></span><span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates"><meta itemprop="latitude" property="schema:latitude" content="${it[entry]['http://schema.org/latitude'][0]}"/><meta itemprop="longitude" property="schema:longitude" content="${it[entry]['http://schema.org/longitude'][0]}"/></span></li>
 						</c:forEach>
 					</ul>
 				</div>

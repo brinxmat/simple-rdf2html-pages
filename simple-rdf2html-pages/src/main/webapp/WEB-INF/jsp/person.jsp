@@ -42,7 +42,7 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 
 					<ul>
 						<c:forEach items="${it[baseuri]['http://xmlns.com/foaf/0.1/made']}" var="entry">
-    						<li itemscope itemtype="${it[entry]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" prefix="schema: http://schema.org/ rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# dcterms: http://purl.org/dc/terms/" typeof="${it[entry]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" about="${entry}"><span itemprop="title" ><a href="${entry}" title="${it[entry]["http://schema.org/title"][0]}">${it[entry]["http://schema.org/title"][0]}</a></span></li>
+    						<li itemscope itemtype="${it[entry]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" prefix="schema: http://schema.org/ rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# dcterms: http://purl.org/dc/terms/" typeof="${it[entry]['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'][0]}" about="${entry}"><span itemprop="title" ><a href="${entry}" title="${it[entry]['http://schema.org/title'][0]}">${it[entry]["http://schema.org/title"][0]}</a></span></li>
 						</c:forEach>
 					</ul>
 				</div>

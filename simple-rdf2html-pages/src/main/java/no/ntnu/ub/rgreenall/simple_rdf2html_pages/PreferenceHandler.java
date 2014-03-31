@@ -39,16 +39,6 @@ public class PreferenceHandler {
 		
 		return uri;
 	}
-
-	public String getDataURI() throws ConfigurationException {
-
-		if (properties == null) {
-			getProperties();
-		}
-		String uri = properties.getProperty("datauri").toString();
-		
-		return uri;
-	}
 	
 	public String getSearchURI() throws ConfigurationException {
 

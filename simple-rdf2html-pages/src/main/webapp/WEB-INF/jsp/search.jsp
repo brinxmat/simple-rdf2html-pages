@@ -24,7 +24,6 @@
     	    	<li class="hit">
     	    	  <a href="${identifier}">
     	    	  <div>
-    	    	  
     	    	    <div class="title">${s["_source"][identifier]["http://schema.org/title"][0]}</div><br>
     	    	    <div class="author">${s["_source"][identifier]["http://schema.org/creator"][0]}</div>
     	    	    <div class="date">${s["_source"][identifier]["http://schema.org/dateCreated"][0]}</div>    	    	    
