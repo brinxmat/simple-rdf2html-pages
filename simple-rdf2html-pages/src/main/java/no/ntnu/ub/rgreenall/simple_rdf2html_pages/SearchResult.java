@@ -4,32 +4,42 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-	/**
-	 * SearchResult — a class to handle search results
-	 * @author rurikgreenall
+	// TODO: Auto-generated Javadoc
+/**
+	 * SearchResult, a class to handle search results.
 	 *
+	 * @author rurikgreenall
 	 */
 
 	public class SearchResult {
 		
+		/** The document name. */
 		public String documentName;
+		
+		/** The document date. */
 		public String documentDate;
+		
+		/** The document id. */
 		public String documentId;
+		
+		/** The document authors. */
 		public List<String> documentAuthors;
 		
 		/**
-		 * Default constructor method
+		 * Default constructor method.
 		 */
 		public SearchResult() {
 	
 		}
+		
 		/**
 		 * Overloaded constructor method
 		 *  
-		 * @param documentName
-		 * @param documentDate
-		 * @param documentId
-		 * @param documentAuthors
+		 *
+		 * @param documentName the document name
+		 * @param documentDate the document date
+		 * @param documentId the document id
+		 * @param documentAuthors the document authors
 		 */
 		public SearchResult (String documentName,String documentDate,String documentId, List<String> documentAuthors) {
 			this.documentName = documentName;
@@ -39,24 +49,44 @@ import java.util.Map;
 		}
 		
 		/**
-		 * Setters for document properties
-		 * @param documentName
+		 * Sets the document name.
+		 *
+		 * @param documentName the new document name
 		 */
 		public void setDocumentName(String documentName) {
 			this.documentName = documentName;
 		}
+		
+		/**
+		 * Sets the document date.
+		 *
+		 * @param documentDate the new document date
+		 */
 		public void setDocumentDate(String documentDate) {
 			this.documentDate = documentDate;
 		}
+		
+		/**
+		 * Sets the document id.
+		 *
+		 * @param documentId the new document id
+		 */
 		public void setDocumentId(String documentId) {
 			this.documentId = documentId;
 		}
+		
+		/**
+		 * Sets the document authors.
+		 *
+		 * @param documentAuthors the new document authors
+		 */
 		public void setDocumentAuthors(List<String> documentAuthors) {
 			this.documentAuthors = documentAuthors;
 		}
 		
 		/**
-		 * get Document data method to create a Map of the input data
+		 * get Document data method to create a Map of the input data.
+		 *
 		 * @return Map<String,String>
 		 */
 		

@@ -4,16 +4,17 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * AuthorList — a class to create a pretty list of authors
- * @author rurikgreenall
+ * AuthorList is a class to create a pretty string that lists authors, inserting commas and ampersands where necessary.
  *
+ * @author rurikgreenall
  */
 public class AuthorList {
 	
+	/** The Author list. */
 	public String AuthorList;
 	
 	/**
-	 * Constructor method
+	 * Default constructor method.
 	 */
 	
 	public AuthorList() {
@@ -21,8 +22,9 @@ public class AuthorList {
 	}
 	
 	/**
-	 * AuthorList method with List<String> arguments, returns a string containing a formatted author list
-	 * @param list
+	 * AuthorList method with List<String> arguments, returns a string containing a formatted author list.
+	 *
+	 * @param list the list
 	 */
 	
 	public AuthorList(List<String> list) {
@@ -51,8 +53,10 @@ public class AuthorList {
 		
 		this.AuthorList = data;
 	}
+	
 	/**
-	 * getAuthorList — a method to return the created author list (it may be empty)
+	 * getAuthorList a method to return the created author list (it may be empty).
+	 *
 	 * @return String
 	 */
 	public String getAuthorList() {

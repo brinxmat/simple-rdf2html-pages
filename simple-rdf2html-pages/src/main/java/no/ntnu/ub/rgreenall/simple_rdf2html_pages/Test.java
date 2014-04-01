@@ -10,6 +10,8 @@ import org.apache.commons.configuration.ConfigurationException;
 public class Test {
 
 	/**
+	 * This class is used for testing basic configurations while running in IDEs
+	 * 
 	 * @param args
 	 * @throws ConfigurationException 
 	 * @throws IOException 

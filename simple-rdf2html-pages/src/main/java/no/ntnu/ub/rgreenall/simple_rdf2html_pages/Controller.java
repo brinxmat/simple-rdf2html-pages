@@ -15,14 +15,15 @@ import org.apache.commons.configuration.ConfigurationException;
 
 import com.sun.jersey.api.view.Viewable;
 
-/** Resource class hosted at the URI path "/"
+// TODO: Auto-generated Javadoc
+/** This class controls access to resources.
  */
 @Path("/")
 public class Controller {
 	
 	
 	/**
-	 * get the front page
+	 *  The root resource class hosted at the URI path "/" AKA "get the front page".
 	 * @return Response
 	 */
 	@Path("")
@@ -34,12 +35,13 @@ public class Controller {
     }
 	
 	/**
-	 * Do a search and format and present the results
-	 * @param query
-	 * @param from
-	 * @return
-	 * @throws ConfigurationException
-	 * @throws IOException
+	 * Retrieve search results from indexer and put these into a JSP template.
+	 *
+	 * @param query the query
+	 * @param from the from
+	 * @return Response
+	 * @throws ConfigurationException the configuration exception
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	@Path("search")
     @GET 
@@ -54,7 +56,14 @@ public class Controller {
 
 		return Response.ok(new Viewable("/search.jsp",list)).build();
     }
+	
+	
 
+	/**
+	 * Gets the sitemap. In the current state this is a static file that must be generated, this is because we have wanted to push data out quickly and we assumed that the list of published manuscripts was fixed. This must be changed in the next revision.
+	 *
+	 * @return Response the sitemap
+	 */
 	@Path("sitemap")
     @GET 
     @Produces("application/xml")
@@ -64,10 +73,14 @@ public class Controller {
     }
 
     
-    /** 
-     * provide the JSP with data
+    /**
+     *  
+     * This method creates documents of different types by a Viewable with a JSP template, it takes two arguments "type", the document type, and "identifier", the identifier for the content that is to be displayed. 
+     *
+     * @param type the type
+     * @param identifier the identifier
      * @return Response
-     * @throws ConfigurationException 
+     * @throws ConfigurationException the configuration exception
      */
 	@Path("{type}/{identifier}")
     @GET 
@@ -75,30 +88,12 @@ public class Controller {
     public Response getHTML(@PathParam("type") String type, @PathParam("identifier") String identifier) throws ConfigurationException {
 		
 		String viewType =  new String("/" + type + ".jsp");
-		
-			
-			
 		return Response.ok(new Viewable(viewType,RDFTools.getSchema(identifier,type))).build();
     }
 
-    /** 
-     * provide the JSP with data
-     * @return Response
-     * @throws ConfigurationException 
-     */
-/*
-	@Path("person/{identifier}")
-    @GET 
-    @Produces("text/html")
-    public Response getPersonHTML(@PathParam("identifier") String identifier) throws ConfigurationException {
 
-		String type = "person";
-
-		return Response.ok(new Viewable("/person.jsp",RDFTools.getSchema(identifier,type))).build();
-    }
-*/
     /** 
-     * provide the RDF data
+     * This method returns RDF/XML data, it takes two arguments "type", the document type, and "identifier", the identifier for the content that is to be displayed. 
      * @return Response
      * @throws ConfigurationException 
      */
@@ -112,10 +107,14 @@ public class Controller {
         return data;
     }
 
-    /** 
-     * provide the JSON data
+    /**
+     *  
+     * This method provides JSON data, it takes two arguments "type", the document type, and "identifier", the identifier for the content that is to be displayed. 
+     *
+     * @param type the type
+     * @param identifier the identifier
      * @return Response
-     * @throws ConfigurationException 
+     * @throws ConfigurationException the configuration exception
      */
 	
 	

@@ -6,7 +6,7 @@ import java.util.Map;
 import org.codehaus.jackson.map.ObjectMapper;
 
 /**
- * Json2Pojo — class to convert between JSON and POJOs
+ * Json2Pojo, this class converts between JSON and POJOs
  * @author rurikgreenall
  *
  */
@@ -20,7 +20,7 @@ public class Json2Pojo {
 	public Json2Pojo () { }
 	
 	/**
-	 * Overloaded constructor
+	 * Overloaded constructor, takes a JSON string as an argument
 	 * @param data
 	 */
 	public Json2Pojo (String data) {

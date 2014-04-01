@@ -17,7 +17,7 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.json.JSONObject;
 
 /**
- * RDFTools class — provides basic RDF handling
+ * RDFTools class provides basic RDF handling
  * @author rurikgreenall
  *
  */
@@ -32,7 +32,7 @@ public class RDFTools {
 	public static String identifier;
 
 	/**
-	 * getRDF method — statically accessed to provide result of a sparql query
+	 * getRDF method, statically accessed to provide result of a sparql query
 	 * @param query
 	 * @return
 	 * @throws ConfigurationException
@@ -58,7 +58,7 @@ public class RDFTools {
 	}
 	
 	/**
-	 * getSchema method — maps RDF to HashMap<String,String>
+	 * getSchema method, maps RDF to HashMap<String,String>
 	 * @param identifier
 	 * @return
 	 * @throws ConfigurationException
@@ -115,7 +115,7 @@ public class RDFTools {
 	
   	  	
 	/**
-	 * describeNamedResource method — provides a CBD for a resource via a sparql query
+	 * describeNamedResource method, provides a CBD for a resource via a sparql query
 	 * 
 	 * @param identifier
 	 * @return
@@ -143,7 +143,7 @@ public class RDFTools {
 	}
 	
 	/**
-	 * serializer method — returns given serialization of a Model as a string
+	 * serializer method, returns given serialization of a Model as a string
 	 * @param model
 	 * @param syntax
 	 * @return String
@@ -158,7 +158,7 @@ public class RDFTools {
 	}
 	
 	/**
-	 * getRDFXML method — provides RDF/XML-ABBREV for a resource
+	 * getRDFXML method, provides RDF/XML-ABBREV for a resource
 	 * @param identifier
 	 * @return
 	 * @throws ConfigurationException
@@ -171,7 +171,7 @@ public class RDFTools {
 	}
 	
 	/**
-	 * getJSON method — returns a simplified JSON string for a resource
+	 * getJSON method, returns a simplified JSON string for a resource
 	 * @param identifier
 	 * @return String
 	 * @throws ConfigurationException
