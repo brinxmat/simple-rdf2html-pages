@@ -89,7 +89,7 @@ public class Search {
 		String rawdata = getSearchData(q,start,size);
 		ObjectMapper mapper = new ObjectMapper();
 
-		@SuppressWarnings("unchecked")
+//		@SuppressWarnings("unchecked")
 		Map<Object,Object> list = mapper.readValue(rawdata, Map.class);
 		list.put("query", q);
 		list.put("from", start);

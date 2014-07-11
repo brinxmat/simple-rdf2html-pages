@@ -7,9 +7,9 @@
 		<meta name="viewport" content="width=device-width"/>
 		<meta name="google-site-verification" content="a1uf7qcFosH7CrxLKqONQujxnprZGyyOKI5u8WKr2DE" />
 		<link href="http://fonts.googleapis.com/css?family=Share+Tech" rel="stylesheet" type="text/css">
-	 	<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/reset.css" rel="stylesheet" type="text/css">
-		<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/responsive.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/small.css" type="text/css" media="only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-height: 480px), only screen and (max-device-height: 480px)">
+	 	<link href="http://www.ntnu.no/ub/data/simple-rdf2html-pages/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="http://www.ntnu.no/ub/data/simple-rdf2html-pages/css/responsive.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="http://www.ntnu.no/ub/data/simple-rdf2html-pages/css/small.css" type="text/css" media="only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-height: 480px), only screen and (max-device-height: 480px)">
 		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-darkness/jquery-ui.min.css" rel="stylesheet" type="text/css">
 		<title><fmt:message key="title" bundle="${lingua}" /></title>
 	</head>
@@ -30,7 +30,7 @@
 <%@include file="include/footer.jsp" %>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="http://folk.ntnu.no/greenall/simple-rdf2html-pages/js/autocomplete.js"></script>
-		<script src="http://folk.ntnu.no/greenall/simple-rdf2html-pages/js/${pageContext.request.locale.language}/main.js" type="text/javascript"></script>
+		<script type="text/javascript" src="http://www.ntnu.no/ub/data/simple-rdf2html-pages/js/autocomplete.js"></script>
+		<script src="http://www.ntnu.no/ub/data/simple-rdf2html-pages/js/${pageContext.request.locale.language}/main.js" type="text/javascript"></script>
 	</body>
 </html>

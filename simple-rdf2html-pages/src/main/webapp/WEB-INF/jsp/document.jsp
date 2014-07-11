@@ -13,9 +13,9 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 		<meta content="True" name="HandheldFriendly">
 		<meta name="viewport" content="width=device-width">
 		<link href="http://fonts.googleapis.com/css?family=Share+Tech" rel="stylesheet" type="text/css">
-	 	<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/reset.css" rel="stylesheet" type="text/css">
-		<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/responsive.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/small.css" type="text/css" media="only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-height: 480px), only screen and (max-device-height: 480px)">
+	 	<link href="http://www.ntnu.no/ub/data/simple-rdf2html-pages/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="http://www.ntnu.no/ub/data/simple-rdf2html-pages/css/responsive.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="http://www.ntnu.no/ub/data/simple-rdf2html-pages/css/small.css" type="text/css" media="only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-height: 480px), only screen and (max-device-height: 480px)">
 		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-darkness/jquery-ui.min.css" rel="stylesheet" type="text/css">
 		<title>${it[baseuri]['http://schema.org/title'][0]}</title>
 		<script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
@@ -83,9 +83,9 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 		<%@include file="include/footer.jsp" %>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script type="text/javascript" src="http://folk.ntnu.no/greenall/simple-rdf2html-pages/js/document.js"></script>
+		<script type="text/javascript" src="http://www.ntnu.no/ub/data/simple-rdf2html-pages/js/document.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="http://folk.ntnu.no/greenall/simple-rdf2html-pages/js/autocomplete.js"></script>
+		<script type="text/javascript" src="http://www.ntnu.no/ub/data/simple-rdf2html-pages/js/autocomplete.js"></script>
 		<script type="text/javascript">
     		var disqus_shortname = 'gunnerusspecialcollections';
     		(function() {

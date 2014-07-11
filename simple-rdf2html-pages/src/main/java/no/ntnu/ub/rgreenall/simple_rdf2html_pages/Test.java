@@ -2,8 +2,12 @@ package no.ntnu.ub.rgreenall.simple_rdf2html_pages;
 
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map;
 
 import org.apache.commons.configuration.ConfigurationException;
+
+import com.sun.jersey.api.view.Viewable;
 
 
 
@@ -25,18 +29,23 @@ public class Test {
 		
 //		System.out.println(RDFTools.getSchema("p9", "person"));
 //		System.out.println(RDFTools.getRDFXML("ntnu23"));
-		System.out.println(RDFTools.getJSON("ntnu1", "document"));
+//		System.out.println(RDFTools.getJSON("ntnu1", "document"));
 		
-/*	
+	/*
 		Search s = new Search();
 		Map<?,?> map = s.getSearchDataObject("brev",0);
 		Iterator<?> it = map.entrySet().iterator();
 		
 		while (it.hasNext()) {
 			System.out.println(it.next());
-		}*/
+		}
+	*/
 		
+		Controller c = new Controller();
+		Viewable k = (Viewable) c.doSearch("brev", 0).getEntity();
+		System.out.println(k.getModel());
 	}
 	
+		
 
 }

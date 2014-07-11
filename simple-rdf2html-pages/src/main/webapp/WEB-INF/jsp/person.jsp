@@ -12,9 +12,9 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 		<meta name="viewport" content="width=device-width">
 		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-darkness/jquery-ui.min.css" rel="stylesheet" type="text/css">
 		<link href="http://fonts.googleapis.com/css?family=Share+Tech" rel="stylesheet" type="text/css">
-	 	<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/reset.css" rel="stylesheet" type="text/css">
-		<link href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/responsive.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="http://folk.ntnu.no/greenall/simple-rdf2html-pages/css/small.css" type="text/css" media="only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-height: 480px), only screen and (max-device-height: 480px)">
+	 	<link href="http://www.ntnu.no/ub/data/simple-rdf2html-pages/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="http://www.ntnu.no/ub/data/simple-rdf2html-pages/css/responsive.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="http://www.ntnu.no/ub/data/simple-rdf2html-pages/css/small.css" type="text/css" media="only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-height: 480px), only screen and (max-device-height: 480px)">
 		<title><fmt:message key="title" bundle="${lingua}" /></title>
 	</head>
 	<body>
@@ -51,6 +51,6 @@ pageContext.setAttribute("baseuri",pageContext.findAttribute("uri").toString() +
 		<%@include file="include/footer.jsp" %>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="http://folk.ntnu.no/greenall/simple-rdf2html-pages/js/autocomplete.js"></script>
+		<script type="text/javascript" src="http://www.ntnu.no/ub/data/simple-rdf2html-pages/js/autocomplete.js"></script>
 	</body>
 </html>

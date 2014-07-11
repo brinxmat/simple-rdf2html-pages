@@ -2,6 +2,7 @@ package no.ntnu.ub.rgreenall.simple_rdf2html_pages;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.ws.rs.GET;
@@ -45,7 +46,7 @@ public class Controller {
 	 */
 	@Path("search")
     @GET 
-    @Produces("text/html")
+    @Produces("text/html;qs=2")
     public Response doSearch(@QueryParam("query") String query,@QueryParam("from") int from) throws ConfigurationException, IOException {
 
 		Map<Object,Object> list = new HashMap<Object,Object>();
@@ -57,7 +58,20 @@ public class Controller {
 		return Response.ok(new Viewable("/search.jsp",list)).build();
     }
 	
-	
+	@Path("search")
+    @GET 
+    @Produces("application/json;qs=0.1")
+    public String getSearchJSON(@QueryParam("query") String query,@QueryParam("from") int from) throws ConfigurationException, IOException {
+
+		Map<Object,Object> map = new HashMap<Object,Object>();
+		
+		Search search = new Search();
+		map = search.getSearchDataObject(query, from);
+
+
+		return map.toString();
+    }
+
 
 	/**
 	 * Gets the sitemap. In the current state this is a static file that must be generated, this is because we have wanted to push data out quickly and we assumed that the list of published manuscripts was fixed. This must be changed in the next revision.
